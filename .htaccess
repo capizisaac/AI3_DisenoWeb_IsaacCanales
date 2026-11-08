@@ -1,0 +1,10 @@
+Options -Indexes
+
+# Archivos sensibles de la raíz
+<FilesMatch "^(\.env.*|\.gitignore|composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
+
+# Carpetas internas y repositorio Git
+RewriteEngine On
+RewriteRule ^(config|src|vendor|database|docs|\.git)(/|$) - [F,L]
