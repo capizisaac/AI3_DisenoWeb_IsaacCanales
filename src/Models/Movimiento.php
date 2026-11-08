@@ -11,7 +11,7 @@ final readonly class Movimiento
     public function __construct(
         public Tipo $tipo,
         public Categoria $categoria,
-        public int $montoCentavos,
+        public Dinero $monto,
         public string $descripcion,
         public DateTimeImmutable $fechaMovimiento,
         public ?int $id = null,
