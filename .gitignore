@@ -1,0 +1,18 @@
+# Dependencias
+/vendor/
+
+# Entorno y credenciales
+.env
+config/*.local.php
+
+# Logs y temporales
+*.log
+/logs/
+*.tmp
+
+# Editores y sistema operativo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
