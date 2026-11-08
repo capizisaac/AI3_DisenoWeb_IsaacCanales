@@ -14,5 +14,7 @@
             "email": "isaac.canales.dev@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "*"
+    }
 }
