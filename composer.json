@@ -1,0 +1,18 @@
+{
+    "name": "capizisaac/ordenalo",
+    "description": "ORDENALO: app web de presupuestos personales",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Ordenalo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "capizisaac",
+            "email": "isaac.canales.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
