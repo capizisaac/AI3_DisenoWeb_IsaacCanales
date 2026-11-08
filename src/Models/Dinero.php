@@ -48,6 +48,18 @@ final readonly class Dinero
         return $this->moneda;
     }
 
+    public function aTextoDecimal(): string
+    {
+    $absoluto = abs($this->centavos);
+
+    return sprintf(
+        '%s%d.%02d',
+        $this->centavos < 0 ? '-' : '',
+        intdiv($absoluto, 100),
+        $absoluto % 100
+    );
+    }
+
     public function formatear(): string
     {
         $signo = $this->centavos < 0 ? '-' : '';
