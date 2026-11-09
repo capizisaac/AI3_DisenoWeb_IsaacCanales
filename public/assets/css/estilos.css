@@ -11,6 +11,9 @@
     --acento: #d4af37;
     --encabezado-fondo: #4a1f7c;
     --encabezado-texto: #ffffff;
+    --error: #b3261e;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +28,7 @@
         --acento: #9b6fd6;
         --encabezado-fondo: #1a1325;
         --encabezado-texto: #d4af37;
+        --error: #ff8a80;
     }
 }
 
@@ -145,4 +149,103 @@ a:focus-visible {
     text-align: center;
     color: var(--texto-suave);
     border-top: 1px solid var(--borde);
+}
+
+/* Formulario */
+.formulario-registro {
+    max-width: 36rem;
+}
+
+.formulario-registro h1 {
+    margin: 0 0 1.5rem;
+    color: var(--primario);
+}
+
+.campo {
+    margin: 0 0 1.25rem;
+    padding: 0;
+    border: 0;
+}
+
+.campo label,
+.campo legend {
+    display: block;
+    margin-bottom: 0.4rem;
+    padding: 0;
+    font-weight: 600;
+}
+
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="date"],
+.campo select {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+    color: var(--texto);
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: 3px solid var(--acento);
+    outline-offset: 1px;
+}
+
+.campo .opcion {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 1.5rem 0 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.campo input[type="radio"] {
+    accent-color: var(--primario);
+}
+
+.error {
+    margin: 0.4rem 0 0;
+    font-size: 0.9rem;
+    color: var(--error);
+}
+
+.alerta {
+    margin: 0 0 1.5rem;
+    padding: 0.85rem 1rem;
+    color: var(--error);
+    border: 1px solid var(--error);
+    border-radius: 0.5rem;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--primario-texto);
+    background: var(--primario);
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton:hover {
+    filter: brightness(1.15);
+}
+
+.enlace-secundario {
+    color: var(--texto-suave);
 }
