@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+date_default_timezone_set('America/Guayaquil');
 
 use Ordenalo\Repositories\MovimientoRepositorioPdo;
 use Ordenalo\Services\MovimientoService;
