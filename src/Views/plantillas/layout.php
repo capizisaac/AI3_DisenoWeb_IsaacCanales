@@ -14,6 +14,7 @@ use Ordenalo\Views\Html;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::e($titulo) ?> | ORDENALO</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
+    <script src="assets/js/validacion.js" defer></script>
 </head>
 <body>
     <header class="encabezado">
