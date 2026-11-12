@@ -48,6 +48,23 @@ final class MovimientoRepositorioPdo implements MovimientoRepositorio
         return array_map($this->hidratar(...), $sentencia->fetchAll());
     }
 
+        public function listarPorPeriodo(DateTimeImmutable $desde, DateTimeImmutable $hasta): array
+    {
+        $sentencia = $this->pdo->prepare(
+            'SELECT id, tipo, categoria, monto, descripcion,
+                    fecha_movimiento, fecha_creacion
+             FROM movimientos
+             WHERE fecha_movimiento BETWEEN :desde AND :hasta
+             ORDER BY fecha_movimiento DESC, id DESC'
+        );
+        $sentencia->execute([
+            ':desde' => $desde->format('Y-m-d'),
+            ':hasta' => $hasta->format('Y-m-d'),
+        ]);
+
+        return array_map($this->hidratar(...), $sentencia->fetchAll());
+    }
+    
     /** @param array<string, mixed> $fila */
     private function hidratar(array $fila): Movimiento
     {

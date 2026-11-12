@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ordenalo\Repositories;
 
+use DateTimeImmutable;
 use Ordenalo\Models\Movimiento;
 
 interface MovimientoRepositorio
@@ -13,4 +14,11 @@ interface MovimientoRepositorio
 
     /** @return list<Movimiento> */
     public function listarTodos(): array;
+
+    /**
+     * Movimientos cuya fecha cae entre ambas fechas, inclusive.
+     *
+     * @return list<Movimiento>
+     */
+    public function listarPorPeriodo(DateTimeImmutable $desde, DateTimeImmutable $hasta): array;
 }
