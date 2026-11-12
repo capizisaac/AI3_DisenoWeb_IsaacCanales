@@ -60,6 +60,51 @@ final readonly class Dinero
     );
     }
 
+        public static function cero(string $moneda = 'USD'): self
+    {
+        return new self(0, strtoupper($moneda));
+    }
+
+    public function sumar(self $otro): self
+    {
+        $this->exigirMismaMoneda($otro);
+
+        return new self($this->centavos + $otro->centavos, $this->moneda);
+    }
+
+    public function restar(self $otro): self
+    {
+        $this->exigirMismaMoneda($otro);
+
+        return new self($this->centavos - $otro->centavos, $this->moneda);
+    }
+
+    public function esMayorQue(self $otro): bool
+    {
+        $this->exigirMismaMoneda($otro);
+
+        return $this->centavos > $otro->centavos;
+    }
+
+    /** Porcentaje entero (redondeado hacia abajo) que este monto representa del límite. */
+    public function porcentajeDe(self $limite): int
+    {
+        $this->exigirMismaMoneda($limite);
+
+        if ($limite->centavos <= 0) {
+            throw new InvalidArgumentException('El límite debe ser mayor que cero.');
+        }
+
+        return intdiv($this->centavos * 100, $limite->centavos);
+    }
+
+    private function exigirMismaMoneda(self $otro): void
+    {
+        if ($this->moneda !== $otro->moneda) {
+            throw new InvalidArgumentException('No se pueden operar montos de monedas distintas.');
+        }
+    }
+    
     public function formatear(): string
     {
         $signo = $this->centavos < 0 ? '-' : '';
