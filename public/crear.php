@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Ordenalo\Validation\ValidacionException;
 use Ordenalo\Views\Vista;
 
-$servicio = require __DIR__ . '/../config/contenedor.php';
+$servicio = (require __DIR__ . '/../config/contenedor.php')['movimientos'];
 $vista = new Vista(__DIR__ . '/../src/Views/plantillas');
 
 $valores = [
