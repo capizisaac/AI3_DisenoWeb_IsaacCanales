@@ -249,3 +249,249 @@ a:focus-visible {
 .enlace-secundario {
     color: var(--texto-suave);
 }
+/* Consulta */
+:root {
+    --nivel-normal: #4a1f7c;
+    --nivel-cerca: #d4af37;
+    --nivel-excedido: var(--error);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --nivel-normal: #9b6fd6;
+    }
+}
+
+.consulta-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.consulta-cabecera h1 {
+    margin: 0;
+    color: var(--primario);
+}
+
+.consulta h2 {
+    margin: 2rem 0 1rem;
+    font-size: 1.25rem;
+}
+
+.alerta-exito {
+    color: var(--texto);
+    background: var(--superficie);
+    border-color: var(--acento);
+}
+
+/* Resumen */
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1rem;
+}
+
+.resumen-dato {
+    padding: 1rem 1.25rem;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 0.75rem;
+}
+
+.resumen-etiqueta {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.resumen-dato strong {
+    font-size: 1.6rem;
+    color: var(--primario);
+}
+
+.resumen-dato.saldo-negativo strong {
+    color: var(--error);
+}
+
+/* Límites por categoría */
+.limites {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.limite {
+    padding: 0.9rem 1rem;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-left: 5px solid var(--barra);
+    border-radius: 0.75rem;
+}
+
+.limite-normal {
+    --barra: var(--nivel-normal);
+}
+
+.limite-cerca {
+    --barra: var(--nivel-cerca);
+}
+
+.limite-excedido {
+    --barra: var(--nivel-excedido);
+}
+
+.limite-texto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.limite-nombre {
+    font-weight: 700;
+}
+
+.limite progress {
+    width: 100%;
+    height: 0.6rem;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--borde);
+}
+
+.limite progress::-webkit-progress-bar {
+    background: var(--borde);
+}
+
+.limite progress::-webkit-progress-value {
+    background: var(--barra);
+    border-radius: 999px;
+}
+
+.limite progress::-moz-progress-bar {
+    background: var(--barra);
+    border-radius: 999px;
+}
+
+.limite-nivel {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+}
+
+/* Tabla */
+.vacio {
+    color: var(--texto-suave);
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    border-radius: 0.75rem;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.tabla thead th {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    background: var(--superficie);
+    border-bottom: 2px solid var(--acento);
+}
+
+.tabla tbody tr:nth-child(even) {
+    background: var(--superficie);
+}
+
+.tabla .numero {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.monto-ingreso {
+    font-weight: 700;
+    color: var(--primario);
+}
+
+.monto-gasto {
+    font-weight: 700;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 0.1rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.etiqueta-ingreso {
+    color: var(--primario-texto);
+    background: var(--primario);
+}
+
+.etiqueta-gasto {
+    color: var(--texto);
+    border: 1px solid var(--acento);
+}
+
+@media (max-width: 40rem) {
+    .tabla thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .tabla,
+    .tabla tbody,
+    .tabla tr,
+    .tabla td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla tbody tr {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--borde);
+    }
+
+    .tabla td {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.25rem 0;
+        text-align: right;
+    }
+
+    .tabla td::before {
+        content: attr(data-etiqueta);
+        font-weight: 600;
+        text-align: left;
+        color: var(--texto-suave);
+    }
+}
