@@ -5,6 +5,7 @@ declare(strict_types=1);
 date_default_timezone_set('America/Guayaquil');
 
 use Ordenalo\Repositories\MovimientoRepositorioPdo;
+use Ordenalo\Seguridad\TokenCsrf;
 use Ordenalo\Services\MovimientoService;
 use Ordenalo\Services\ResumenService;
 use Ordenalo\Validation\ReglaCategoria;
@@ -25,4 +26,5 @@ return [
         new ReglaFecha(),
     ]),
     'resumen' => new ResumenService($repositorio, require __DIR__ . '/limites.php'),
+    'csrf' => new TokenCsrf(),
 ];

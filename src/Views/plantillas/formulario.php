@@ -19,6 +19,7 @@ use Ordenalo\Views\Html;
     <?php endif; ?>
 
     <form id="formulario-movimiento" action="crear.php" method="post">
+        <input type="hidden" name="csrf" value="<?= Html::e($csrf) ?>">
         <fieldset class="campo">
             <legend>Tipo</legend>
             <?php foreach (Tipo::cases() as $tipo): ?>
