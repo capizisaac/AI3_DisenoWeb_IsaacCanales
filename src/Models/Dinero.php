@@ -105,6 +105,12 @@ final readonly class Dinero
         }
     }
     
+    /** Porcentaje entero de este monto, redondeado al centavo (mitad hacia arriba). */
+    public function tomarPorcentaje(int $porcentaje): self
+    {
+        return new self(intdiv($this->centavos * $porcentaje + 50, 100), $this->moneda);
+    }
+
     public function formatear(): string
     {
         $signo = $this->centavos < 0 ? '-' : '';
